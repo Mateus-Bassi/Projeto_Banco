@@ -1,0 +1,69 @@
+BANCO
+
+    CADASTRO
+        DADOS PESSOAIS
+        ALTERAR
+        EXCLUIR
+
+
+    OPERACIONAL
+        SAQUE
+        DEPOSITO
+        EXTRATO
+
+
+
+
+CLASSE PESSOA
+    NOME
+    CPF
+    ENDEREÇO
+    TELEFONE
+    EMAIL
+    
+======================================================================================================
+CLASSE CONTA
+    DIGITO VERIFICADOR OU N_TELEFONE
+    AGENCIA
+    CONTA
+
+    FUNÇÕES
+        CADASTRO
+            Verificar se já existe a conta
+
+        ALTERAÇÃO
+        EXcLUSÃO
+
+        SAQUE
+        TRANSAÇÃO
+        EXTRATO
+
+        EMPRESTIMO 
+            (fala quanto que vai pagar)
+
+    CONSULTA DE DÍVIDAS
+
+
+
+
+CLASSE CONTA TRADICIONAL
+    CLASSE CONTA
+CLASSE CONTA PRIME
+    CLASSE CONTA
+CLASSE CONTA BLACK
+    CLASSE CONTA
+
+======================================================================================================
+
+
+CLASSE USUARIO
+    CLASSE PESSOA
+    CLASSE CONTA... (varia)
+    PERGUNTA CHAVE
+    SENHA
+
+
+
+
+
+
