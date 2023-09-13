@@ -1,27 +1,13 @@
-BANCO
-
-    CADASTRO
-        DADOS PESSOAIS
-        ALTERAR
-        EXCLUIR
-
-
-    OPERACIONAL
-        SAQUE
-        DEPOSITO
-        EXTRATO
-
-
-
-
 CLASSE PESSOA
     NOME
     CPF
     ENDEREÇO
     TELEFONE
     EMAIL
-    
+    SALARIO
+
 ======================================================================================================
+
 CLASSE CONTA
     DIGITO VERIFICADOR OU N_TELEFONE
     AGENCIA
@@ -29,35 +15,63 @@ CLASSE CONTA
 
     FUNÇÕES
         CADASTRO
+            Só deve ser realizada uma vez no momento em que o usuário quiser criar uma conta
+
+            Puxa classe Pessoa para obter os dados pessoais do usuário
+
             Verificar se já existe a conta
+                Vai adicionar a conta no BD
+
+            Vai atualizar o banco de dados da pessoa, agora contendo a agencia e a conta.
+                Posteriormente, quando criarmos a classe Usuário, ela irá puxar essa agencia e conta criados agora.
+
 
         ALTERAÇÃO
+            Irá acessar a classe usuário pedindo a senha e as perguntas chaves.
+                Se as informações forem verdadeiras, podemos iniciar a alteração.
+
+            Pode alterar agencia, dados pessoais
+                tipo de conta (depende do salário e será automático)
         EXcLUSÃO
 
         SAQUE
         TRANSAÇÃO
         EXTRATO
 
-        EMPRESTIMO 
-            (fala quanto que vai pagar)
-
     CONSULTA DE DÍVIDAS
 
-
+======================================================================================================
 
 
 CLASSE CONTA TRADICIONAL
+    REQUISITOS
+        Ganhar até R$5 MIL
+
     CLASSE CONTA
+    CASHBACK 1% NA TRANSAÇÃO
+    NÃO PODE FICAR NEGATIVO
+
 CLASSE CONTA PRIME
+    REQUISITOS
+        Ganhar R$5 MIL até R$20 MIL
+
     CLASSE CONTA
+    CASHBACK 2% NA TRANSAÇÃO
+    PODE FICAR 15% DO SALÁRIO NEGATIVO
+
 CLASSE CONTA BLACK
+    REQUISITOS
+        Ganhar no mínimo R$20 MIL 
+
     CLASSE CONTA
+    CASHBACK 5% NA TRANSAÇÃO
+    PODE FICAR 30% DO SALÁRIO NEGATIVO
+
 
 ======================================================================================================
 
 
 CLASSE USUARIO
-    CLASSE PESSOA
     CLASSE CONTA... (varia)
     PERGUNTA CHAVE
     SENHA
