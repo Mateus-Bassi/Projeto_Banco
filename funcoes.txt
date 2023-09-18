@@ -12,8 +12,7 @@ Conta
     AtualizarTipoConta(): Altera o tipo da conta (por exemplo, de poupança para corrente).
 ____________________________________________________________________________________________
 Agencia
-    ListarClientes(): Retorna uma lista de clientes associados a essa agência.
-    ListarFuncionarios(): Retorna uma lista de funcionários que trabalham nesta agência.
+    SEM FUNÇÕES
 ____________________________________________________________________________________________
 Movimentacao
     RegistrarMovimentacao(): Cria um registro de uma nova movimentação.
@@ -36,7 +35,3 @@ Investimento
     CalcularRendimento(): Calcula o rendimento até a data atual.
     Investir(decimal valor): Adiciona um novo montante ao investimento existente.
 ____________________________________________________________________________________________
-  Funcionario
-    Promover(): Promove um funcionário.
-    Demitir(): Demite um funcionário.
-    AtualizarSalario(decimal novoSalario): Atualiza o salário de um funcionário.
