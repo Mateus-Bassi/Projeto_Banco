@@ -1,0 +1,42 @@
+Cliente
+    AtualizarInformacoes(): Atualiza informações pessoais do cliente.
+    SolicitarEmprestimo(): Submete um pedido de empréstimo.
+____________________________________________________________________________________________
+Endereco
+    AtualizarEndereco(): Atualiza os detalhes do endereço.
+____________________________________________________________________________________________
+Conta
+    Depositar(decimal valor): Adiciona um valor ao saldo da conta.
+    Sacar(decimal valor): Subtrai um valor do saldo da conta.
+    Transferir(decimal valor, Conta contaDestino): Transfere um valor para uma conta diferente.
+    AtualizarTipoConta(): Altera o tipo da conta (por exemplo, de poupança para corrente).
+____________________________________________________________________________________________
+Agencia
+    ListarClientes(): Retorna uma lista de clientes associados a essa agência.
+    ListarFuncionarios(): Retorna uma lista de funcionários que trabalham nesta agência.
+____________________________________________________________________________________________
+Movimentacao
+    RegistrarMovimentacao(): Cria um registro de uma nova movimentação.
+____________________________________________________________________________________________
+Transferencia (uma especificação da classe Movimentação)
+    EfetuarTransferencia(): Realiza uma transferência entre contas.
+____________________________________________________________________________________________
+Emprestimo
+    Aprovar(): Aprova um empréstimo solicitado.
+    Negar(): Nega um empréstimo solicitado.
+    CalcularParcela(): Calcula o valor da parcela com base na taxa de juros e no período.
+____________________________________________________________________________________________
+CartaoCredito
+    AumentarLimite(decimal novoLimite): Aumenta o limite do cartão de crédito.
+    Bloquear(): Bloqueia o cartão.
+    Desbloquear(): Desbloqueia o cartão.
+____________________________________________________________________________________________
+Investimento
+    Resgatar(): Resgata o valor investido.
+    CalcularRendimento(): Calcula o rendimento até a data atual.
+    Investir(decimal valor): Adiciona um novo montante ao investimento existente.
+____________________________________________________________________________________________
+  Funcionario
+    Promover(): Promove um funcionário.
+    Demitir(): Demite um funcionário.
+    AtualizarSalario(decimal novoSalario): Atualiza o salário de um funcionário.
