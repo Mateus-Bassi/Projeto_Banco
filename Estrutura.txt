@@ -1,83 +1,82 @@
-CLASSE PESSOA
-    NOME
+Cliente
+    ID (Chave Primária)
+    Nome
     CPF
-    ENDEREÇO
-    TELEFONE
-    EMAIL
-    SALARIO
+    DataNascimento
+    Email
+    Telefone
+    Endereco (relação com a classe Endereço)
+______________________________________________________________________________
+Endereco
+    ID (Chave Primária)
+    Rua
+    Numero
+    Bairro
+    Cidade
+    Estado
+    CEP
+    ClienteID (Chave Estrangeira)
+______________________________________________________________________________
+Conta
+    ID (Chave Primária)
+    NumeroConta
+    TipoConta (Poupança, Corrente, Salário)
+    Saldo
+    DataAbertura
+    ClienteID (Chave Estrangeira)
+    AgenciaID (Chave Estrangeira)
+______________________________________________________________________________
+Agencia
+    ID (Chave Primária)
+    NumeroAgencia
+    Nome
+    Endereco (relação com a classe Endereço)
+______________________________________________________________________________
+Movimentacao (representa saques, depósitos, transferências)
+    ID (Chave Primária)
+    Tipo (Saque, Depósito, Transferência)
+    Valor
+    DataMovimentacao
+    ContaID (Chave Estrangeira)
+______________________________________________________________________________
+Transferencia (uma especificação da classe Movimentação)
+    ID (Chave Primária)
+    ContaOrigemID (Chave Estrangeira)
+    ContaDestinoID (Chave Estrangeira)
+    Valor
+    DataTransferencia
+______________________________________________________________________________
+Emprestimo
+    ID (Chave Primária)
+    ValorSolicitado
+    DataSolicitacao
+    TaxaJuros
+    NumeroParcelas
+    ValorParcela
+    ContaID (Chave Estrangeira)
+______________________________________________________________________________
+CartaoCredito
+    ID (Chave Primária)
+    NumeroCartao
+    DataValidade
+    CVC
+    Limite
+    ContaID (Chave Estrangeira)
+______________________________________________________________________________
+Investimento
+    ID (Chave Primária)
+    Tipo (CDB, Tesouro Direto, Fundo Imobiliário)
+    ValorInicial
+    DataInvestimento
+    RentabilidadeMensal
+    DataResgate
+    ContaID (Chave Estrangeira)
 
-======================================================================================================
-
-CLASSE CONTA
-    DIGITO VERIFICADOR OU N_TELEFONE
-    AGENCIA
-    CONTA
-
-    FUNÇÕES
-        CADASTRO
-            Só deve ser realizada uma vez no momento em que o usuário quiser criar uma conta
-
-            Puxa classe Pessoa para obter os dados pessoais do usuário
-
-            Verificar se já existe a conta
-                Vai adicionar a conta no BD
-
-            Vai atualizar o banco de dados da pessoa, agora contendo a agencia e a conta.
-                Posteriormente, quando criarmos a classe Usuário, ela irá puxar essa agencia e conta criados agora.
-
-
-        ALTERAÇÃO
-            Irá acessar a classe usuário pedindo a senha e as perguntas chaves.
-                Se as informações forem verdadeiras, podemos iniciar a alteração.
-
-            Pode alterar agencia, dados pessoais
-                tipo de conta (depende do salário e será automático)
-        EXcLUSÃO
-
-        SAQUE
-        TRANSAÇÃO
-        EXTRATO
-
-    CONSULTA DE DÍVIDAS
-
-======================================================================================================
-
-
-CLASSE CONTA TRADICIONAL
-    REQUISITOS
-        Ganhar até R$5 MIL
-
-    CLASSE CONTA
-    CASHBACK 1% NA TRANSAÇÃO
-    NÃO PODE FICAR NEGATIVO
-
-CLASSE CONTA PRIME
-    REQUISITOS
-        Ganhar R$5 MIL até R$20 MIL
-
-    CLASSE CONTA
-    CASHBACK 2% NA TRANSAÇÃO
-    PODE FICAR 15% DO SALÁRIO NEGATIVO
-
-CLASSE CONTA BLACK
-    REQUISITOS
-        Ganhar no mínimo R$20 MIL 
-
-    CLASSE CONTA
-    CASHBACK 5% NA TRANSAÇÃO
-    PODE FICAR 30% DO SALÁRIO NEGATIVO
-
-
-======================================================================================================
-
-
-CLASSE USUARIO
-    CLASSE CONTA... (varia)
-    PERGUNTA CHAVE
-    SENHA
-
-
-
-
-
-
+______________________________________________________________________________
+Funcionario (funcionários que trabalham nas agências)
+    ID (Chave Primária)
+    Nome
+    Cargo
+    DataAdmissao
+    AgenciaID (Chave Estrangeira)
+    Endereco (relação com a classe Endereço)
