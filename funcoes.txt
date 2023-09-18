@@ -35,3 +35,30 @@ Investimento
     CalcularRendimento(): Calcula o rendimento até a data atual.
     Investir(decimal valor): Adiciona um novo montante ao investimento existente.
 ____________________________________________________________________________________________
+Seguro
+    EstaAtivo()
+        Descrição: Verifica se o seguro está ativo com base nas datas de início e fim.
+        Retorna: Verdadeiro se o seguro estiver ativo, falso caso contrário.
+
+    Renovar(TimeSpan periodoAdicional)
+        Descrição: Renova o seguro estendendo a data de término por um período adicional.
+        Parâmetros: periodoAdicional - A quantidade de tempo para estender o seguro.
+
+    Detalhes()
+        Descrição: Retorna uma string com detalhes sobre o seguro.
+        Retorna: Uma string descrevendo o seguro.
+
+    AlterarValorCoberto(decimal novoValor)
+        Descrição: Altera o valor coberto do seguro.
+        Parâmetros: novoValor - O novo valor a ser coberto.
+
+    CalcularDuracao()
+        Descrição: Calcula a duração do seguro.
+        Retorna: A duração do seguro como um TimeSpan.
+
+    ObterDesconto()
+        Descrição: Calcula um desconto no prêmio do seguro com base em certas condições (neste exemplo, é um desconto para seguro de vida com valor coberto superior a um certo montante).
+        Retorna: A quantidade de desconto.
+
+    Cancelar()
+        Descrição: Cancela o seguro ajustando a data de término para a data atual.
