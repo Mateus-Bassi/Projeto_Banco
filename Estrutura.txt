@@ -73,10 +73,11 @@ Investimento
     ContaID (Chave Estrangeira)
 
 ______________________________________________________________________________
-Funcionario (funcionários que trabalham nas agências)
+Seguro (uma especificação de ProdutoBancario)
     ID (Chave Primária)
-    Nome
-    Cargo
-    DataAdmissao
-    AgenciaID (Chave Estrangeira)
-    Endereco (relação com a classe Endereço)
+    Tipo (Vida, Residencial, Veículo)
+    ValorCoberto
+    Premio
+    DataInicio
+    DataFim
+    ClienteID (Chave Estrangeira)
