@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Banco</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <section>
+        <nav >
+            <a href="index.html" class="margem">Home</a> |
+            <a href="cadastro.html" class="margem">Cadastro</a> |
+            <a href="login.html" class="margem">Login</a>
+            <form>
+                <label for="Escuro">Escuro:</label>
+                <input type="radio" name="tema" id="Escuro" onclick="document.getElementById('tema').classList.remove('claro')">
+                <label for="Claro">Claro:</label>
+                <input type="radio" name="tema" id="Claro" onclick="document.getElementById('tema').classList.add('claro')">
+            </form>
+        </nav>
+      
+    </section>
+    <br>
+    <div class="cadastro_class" id="tema">
+        <div class="titulo">
+            <h1>Cadastro de usuário</h1>
+            <p>Complete as informções</p>
+        </div>
+        <form>
+            <fieldset>  <!--Cria uma borda-->
+                <label for="name">Nome Completo: </label>
+                <input type="text" name="name"><br>
+
+                <label for="CPF">CPF: </label>
+                <input type="text" name="CPF"><br>
+
+                <label for="CEP">CEP:</label>
+                <input type="text" name="CEP"><br>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email"><br>
+
+                <label for="telefone">Telefone: </label>
+                <input type="tel" name="telefone"><br>
+
+                <label for="Nascimento">Data de Nascimento:</label>
+                <input type="date" name="DatadeNascimento" value="Data de Nascimento"><br>
+                
+                <label for="Senha">Senha: </label>
+                <input type="password"name="Senha"><br>
+            </fieldset>
+            <button class="botao" onclick="alert('Criando conta')">Criando conta</button>
+        </form>
+    </div>
+</body>
+</html>
