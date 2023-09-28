@@ -1,4 +1,4 @@
-Cliente
+Cliente - Mateus (Chat)
     ID (Chave Primária)
     Nome
     CPF
@@ -7,7 +7,7 @@ Cliente
     Telefone
     Endereco (relação com a classe Endereço)
 ______________________________________________________________________________
-Endereco
+Endereco - Juan
     ID (Chave Primária)
     Rua
     Numero
@@ -17,7 +17,7 @@ Endereco
     CEP
     ClienteID (Chave Estrangeira)
 ______________________________________________________________________________
-Conta
+Conta - Willian (Chat)
     ID (Chave Primária)
     NumeroConta
     TipoConta (Poupança, Corrente, Salário)
@@ -26,27 +26,27 @@ Conta
     ClienteID (Chave Estrangeira)
     AgenciaID (Chave Estrangeira)
 ______________________________________________________________________________
-Agencia
+Agencia - Juan
     ID (Chave Primária)
     NumeroAgencia
     Nome
     Endereco (relação com a classe Endereço)
 ______________________________________________________________________________
-Movimentacao (representa saques, depósitos, transferências)
+Movimentacao (representa saques, depósitos, transferências) - Willian
     ID (Chave Primária)
     Tipo (Saque, Depósito, Transferência)
     Valor
     DataMovimentacao
     ContaID (Chave Estrangeira)
 ______________________________________________________________________________
-Transferencia (uma especificação da classe Movimentação)
+Transferencia (uma especificação da classe Movimentação) - Mateus
     ID (Chave Primária)
     ContaOrigemID (Chave Estrangeira)
     ContaDestinoID (Chave Estrangeira)
     Valor
     DataTransferencia
 ______________________________________________________________________________
-Emprestimo
+Emprestimo - Mateus
     ID (Chave Primária)
     ValorSolicitado
     DataSolicitacao
@@ -55,7 +55,7 @@ Emprestimo
     ValorParcela
     ContaID (Chave Estrangeira)
 ______________________________________________________________________________
-CartaoCredito
+CartaoCredito - Ito
     ID (Chave Primária)
     NumeroCartao
     DataValidade
@@ -63,7 +63,7 @@ CartaoCredito
     Limite
     ContaID (Chave Estrangeira)
 ______________________________________________________________________________
-Investimento
+Investimento - Ito
     ID (Chave Primária)
     Tipo (CDB, Tesouro Direto, Fundo Imobiliário)
     ValorInicial
@@ -73,7 +73,7 @@ Investimento
     ContaID (Chave Estrangeira)
 
 ______________________________________________________________________________
-Seguro (uma especificação de ProdutoBancario)
+Seguro (uma especificação de ProdutoBancario) - Willian
     ID (Chave Primária)
     Tipo (Vida, Residencial, Veículo)
     ValorCoberto
