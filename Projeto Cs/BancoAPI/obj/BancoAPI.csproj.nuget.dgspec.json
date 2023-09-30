@@ -1,7 +1,27 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "c:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+=======
+<<<<<<< HEAD
+    "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+        "projectName": "BancoAPI",
+        "projectPath": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+>>>>>>> 577702f69be60f800fbff6d9adfba9baaf9561c4
   },
   "projects": {
     "c:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {
@@ -16,12 +36,12 @@
         "configFilePaths": [
           "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 041aa708ad89d7b01d038c9c41a294aa3f4923bb
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

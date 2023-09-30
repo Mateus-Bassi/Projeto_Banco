@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using BancoAPI.Models;  // ou o namespace onde seus modelos estão
 using Microsoft.EntityFrameworkCore;
 
@@ -97,3 +98,19 @@ namespace BancoAPI.Data
 
     }
 }
+=======
+using BancoAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace BancoAPI.Data;
+public class BancoDbContext : DbContext
+{
+    public DbSet<Cliente>? Cliente { get; set;}
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        //optionsBuilder.UseSqlite("DataSource=banco.db;Cache=Shared");
+    }
+
+}
+>>>>>>> 577702f69be60f800fbff6d9adfba9baaf9561c4
