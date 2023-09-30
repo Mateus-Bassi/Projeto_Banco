@@ -17,4 +17,12 @@ public class Cliente
     public string Email { get; set; }
     public string Telefone { get; set; }
     // 
+    public Cliente() // Default 
+    {
+        Name = "";
+        CPF = "";
+        DataNascimento = "";
+        Email = "";
+        Telefone = "";
+    }
 }

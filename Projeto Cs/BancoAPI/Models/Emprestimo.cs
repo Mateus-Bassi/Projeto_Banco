@@ -1,4 +1,6 @@
 //Mateus Bassi
+namespace BancoAPI.Models;
+
 public class Emprestimo
 {
     private int tx_juros{get;} // taxa de juros
@@ -7,6 +9,14 @@ public class Emprestimo
     public string Data_soli{ get; set; } // data da solicitacao
     public int n_parcelas{ get; set; }// numero de parcela
     
+    public Emprestimo() // Default
+    {
+        tx_juros = 20;
+        Valor_soli = 0;
+        Data_soli="";
+        n_parcelas= 0;
+
+    }
 
 
 
