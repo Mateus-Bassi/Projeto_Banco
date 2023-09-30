@@ -16,6 +16,10 @@ public class Cliente
     public string DataNascimento { get; set; }
     public string Email { get; set; }
     public string Telefone { get; set; }
+
+    public virtual ICollection<Conta> Contas { get; set; } // Adicionado por William (me chama kkkk)
+    public ICollection<Endereco> Enderecos { get; set; } // Adicionado por William (me chama kkkk)
+    public ICollection<ClienteEndereco> ClienteEnderecos { get; set; } // Adicionado por William (me chama kkkk)
     // 
     public Cliente() // Default 
     {
