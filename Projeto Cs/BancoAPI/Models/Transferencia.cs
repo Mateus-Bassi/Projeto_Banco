@@ -5,11 +5,18 @@ namespace BancoAPI.Models;
 public class Tranferencia
 {
 
-    // id do Cliente
-    // Conta que vai tranferir 
-    //Conta que vai receber 
-    public int Valor{get; set;}
-    public string Date{get; set;}
+    public int Id { get; set; }
+
+    public decimal Valor { get; set; }
+    public DateTime DataTransferencia { get; set; }
+
+    // Chave estrangeira para a conta de origem
+    public int ContaOrigemID { get; set; }
+    public virtual Conta ContaOrigem { get; set; }  // "virtual" para carregar a entidade apenas quando são acessadas
+
+    // Chave estrangeira para a conta de destino
+    public int ContaDestinoID { get; set; }
+    public virtual Conta ContaDestino { get; set; }
 
     public Tranferencia() // Default
     {
