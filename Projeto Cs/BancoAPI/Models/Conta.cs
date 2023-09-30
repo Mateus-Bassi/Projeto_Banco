@@ -1,3 +1,4 @@
+// William
 using System;
 using System.Collections.Generic;
 
@@ -32,9 +33,10 @@ namespace BancoAPI.Models
         // Utilizamos dessa maneira em relações UM PARA MUITOS
         public ICollection<Transferencia> TransferenciaOrigem { get; set; } // Transferências onde esta conta é a origem
         public ICollection<Transferencia> TransferenciaDestino { get; set; } // Transferências onde esta conta é o destino
-        public ICollection<Emprestimo> Emprestimos { get; set; }
-        public ICollection<CartaoCredito> CartoesCredito { get; set; }
-        public ICollection<Investimento> Investimentos { get; set; }
+        public ICollection<Emprestimo> Emprestimos { get; set; } // Emprestimos que são vinculados à essa conta
+        public ICollection<CartaoCredito> CartoesCredito { get; set; } ;// Cartões de crédito que são vinculados à essa conta
+        public ICollection<Investimento> Investimentos { get; set; } // Investimentos que são vinculados à essa conta
+        public ICollection<Movimentacao> Movimentacoes { get; set; } // Investimentos que são vinculados à essa conta
 
 
         // Construtor padrão, sem parâmetros
