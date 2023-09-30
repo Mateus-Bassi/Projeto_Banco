@@ -1006,11 +1006,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Acer\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\dados\\.nuget\\packages\\": {}
+>>>>>>> 041aa708ad89d7b01d038c9c41a294aa3f4923bb
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
       "projectName": "BancoAPI",
       "projectPath": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
@@ -1019,6 +1024,17 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+      "projectName": "BancoAPI",
+      "projectPath": "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+      "packagesPath": "C:\\Users\\dados\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\dados\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 041aa708ad89d7b01d038c9c41a294aa3f4923bb
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1074,9 +1090,10 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
+<<<<<<< HEAD
   },
   "logs": [
     {
@@ -1086,4 +1103,7 @@
       "message": "Problema ao ler o arquivo de cache c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
+=======
+  }
+>>>>>>> 041aa708ad89d7b01d038c9c41a294aa3f4923bb
 }

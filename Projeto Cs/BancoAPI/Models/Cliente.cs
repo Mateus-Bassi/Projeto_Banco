@@ -1,5 +1,6 @@
 //Mateus Bassi
-
+using System.ComponentModel.DataAnnotations;
+namespace BancoAPI.Models;
 public class Cliente
 {
     // Campo privado para armazenar o ID gerado
