@@ -17,40 +17,36 @@ public class ContasController : ControllerBase
         _context = context;
     }
 
-    // GET: api/Contas
     [HttpGet]
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<Conta>>> GetContas()
     {
-        if(_dbContext is null) return NotFound();
-        if(_dbContext.Conta is null) return NotFound();
+        if(_context is null) return NotFound();
+        if(_context.Conta is null) return NotFound();
         return await _context.Conta.ToListAsync();
     }
 
-    // GET: api/Contas/5
     [HttpGet]
     [Route("buscar/{ContaID}")]
     public async Task<ActionResult<Conta>> GetConta(int contaID)
     {
-        if(_dbContext is null) return NotFound();
-        if(_dbContext.Conta is null) return NotFound();
+        if(_context is null) return NotFound();
+        if(_context.Conta is null) return NotFound();
         var conta = await _context.Conta.FindAsync(contaID);
-        if (_context.Conta is null) return NotFound();
-        return carro;
+        if (conta is null) return NotFound();
+        return conta;
     }
 
     [HttpPut]
     [Route("alterar/{ContaID}")]
     public async Task<ActionResult> Alterar(int ContaID, Conta conta)
-    // Recebe o ID da conta a ser alterada e um objeto Conta com os valores que substituirão os valores da Conta com o ID
     {
-        if(_dbContext is null) return NotFound();
-        if(_dbContext.Conta is null) return NotFound();
+        if(_context is null) return NotFound();
+        if(_context.Conta is null) return NotFound();
         
-        var contaExistente = await _dbContext.Conta.FindAsync(conta.ContaID); // Procurando a conta pelo ID
-        if(contaExistente is null) return NotFound(); // Caso não ache a conta com o ID
+        var contaExistente = await _context.Conta.FindAsync(ContaID);
+        if(contaExistente is null) return NotFound();
 
-       // Atualizando os campos da conta existente com os valores da conta recebida.
         contaExistente.NumeroConta = conta.NumeroConta;
         contaExistente.TipoConta = conta.TipoConta;
         contaExistente.Saldo = conta.Saldo;
@@ -58,11 +54,12 @@ public class ContasController : ControllerBase
         contaExistente.ClienteID = conta.ClienteID;
         contaExistente.AgenciaID = conta.AgenciaID;
 
-        _dbContext.Conta.Update(contaExistente);
-        await _dbContext.SaveChangesAsync();
+        _context.Conta.Update(contaExistente);
+        await _context.SaveChangesAsync();
 
         return Ok();
     }
+
 
 
 /*

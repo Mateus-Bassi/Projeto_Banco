@@ -34,7 +34,7 @@ namespace BancoAPI.Models
         public ICollection<Transferencia> TransferenciaOrigem { get; set; } // Transferências onde esta conta é a origem
         public ICollection<Transferencia> TransferenciaDestino { get; set; } // Transferências onde esta conta é o destino
         public ICollection<Emprestimo> Emprestimos { get; set; } // Emprestimos que são vinculados à essa conta
-        public ICollection<CartaoCredito> CartoesCredito { get; set; } ;// Cartões de crédito que são vinculados à essa conta
+        public ICollection<CartaoCredito> CartoesCredito { get; set; } // Cartões de crédito que são vinculados à essa conta
         public ICollection<Investimento> Investimentos { get; set; } // Investimentos que são vinculados à essa conta
         public ICollection<Movimentacao> Movimentacoes { get; set; } // Investimentos que são vinculados à essa conta
 
@@ -52,7 +52,7 @@ namespace BancoAPI.Models
             // Construtor com os parâmetros
             public Conta(int id, string numeroConta, TipoConta tipoConta, decimal saldo, DateTime dataAbertura, int clienteID, int agenciaID)
             {
-                Id = id;
+                ContaID = id;
                 NumeroConta = numeroConta;
                 TipoConta = tipoConta;
                 Saldo = saldo;

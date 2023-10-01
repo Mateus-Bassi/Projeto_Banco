@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// William
 using BancoAPI.Models;  // ou o namespace onde seus modelos estão
 using Microsoft.EntityFrameworkCore;
 
@@ -25,92 +25,83 @@ namespace BancoAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Relacionamento Cliente - Endereco
-            modelBuilder.Entity<Cliente>()
-                .HasOne(cliente => cliente.Endereco) // Especifica que Cliente tem relação com Endereço
-                .WithOne(endereco => endereco.Cliente) // Faz a especificação inversa, ou seja, do Endereço com o Cliente
-                .HasForeignKey<Endereco>(endereco => endereco.ClienteID); // Especifica que a relação é representada por uma chave estrangeira.
+            // Configuração da tabela intermediária ClienteEndereco
+            modelBuilder.Entity<ClienteEndereco>()
+                // Cria um objeti anônimo com duas propriedades. Essas propriedades em conjunto formam a chave primária de ClienteEndereco
+                .HasKey(ce => new { ce.ClienteID, ce.EnderecoID }); // chave composta
 
-            // Relacionamento Cliente - Conta
+            // Relacionamento ClienteEndereco - Cliente (MUITOS PARA MUITOS)
+            modelBuilder.Entity<ClienteEndereco>()
+                .HasOne(ce => ce.Cliente)
+                .WithMany(c => c.ClienteEnderecos)
+                .HasForeignKey(ce => ce.ClienteID);
+
+            // Relacionamento ClienteEndereco - Endereco (MUITOS PARA MUITOS)
+            modelBuilder.Entity<ClienteEndereco>()
+                .HasOne(ce => ce.Endereco)
+                .WithMany(e => e.ClienteEnderecos)
+                .HasForeignKey(ce => ce.EnderecoID);
+
+
+
+            // Relacionamento Cliente - Conta (UM PARA MUITOS)
             modelBuilder.Entity<Cliente>()
                 .HasMany(cliente => cliente.Conta) // Especifica que Cliente tem uma relação com Conta (Um cliente para varias contas)
                 .WithOne(conta => conta.Cliente) // Faz a espeficicação da relação da Conta com o Cliente (Uma conta para um cliente)
                 .HasForeignKey<Conta>(conta => conta.ClienteID); // Chave estrangeira
 
+            // Relacionamento Agencia - Conta (UM PARA MUITOS)
             modelBuilder.Entity<Agencia>()
                 .HasMany(agencia => agencia.Conta)
                 .WithOne(conta => conta.Agencia)
-                .HasForeignKey<Agencia>(conta => conta.ContaID)
+                .HasForeignKey<Conta>(conta => conta.AgenciaID);
 
-            // Relacionamento Cliente Agencia
+            // Relacionamento Agencia - Endereço (UM PRA UM)
+            modelBuilder.Entity<Endereco>()
+                .HasOne(endereco => endereco.Agencia)
+                .WithOne(agencia => agencia.Endereco)
+                .HasForeignKey<Agencia>(agencia => agencia.CEP); // DEVEMOS TER UM CAMPO CEP NO ENDEREÇO!!!
+
+            // Relacionamento Cliente - Seguro (UM PARA MUTIOS)
+            modelBuilder.Entity<Cliente>()
+                .HasMany(cliente => cliente.Seguro)
+                .WithOne(seguro => seguro.Cliente)
+                .HasForeignKey<Seguro>(seguro => seguro.ClienteID);
+
+            // Relacionamento Conta para Transferencia de Origem (UM PARA MUITOS)
             modelBuilder.Entity<Conta>()
-                .HasOne(c => c.Agencia)
-                .WithMany()  // assumindo que uma Agência pode ter várias Contas
-                .HasForeignKey(c => c.AgenciaID);
+                .HasMany(conta => conta.TransferenciaOrigem)
+                .WithOne(transferencia => transferencia.ContaOrigem)
+                .HasForeignKey<Transferencia>(transferencia => transferencia.ContaOrigemID);
 
-            // Relacionamento Movimentacao - Conta
-            modelBuilder.Entity<Movimentacao>()
-                .HasOne(m => m.Conta)
-                .WithMany()  // assumindo que uma Conta pode ter várias Movimentações
-                .HasForeignKey(m => m.ContaID);
+            // Relacionamento de Conta para Transferências de Destino (UM PARA MUITOS)
+            modelBuilder.Entity<Conta>()
+                .HasMany(conta => conta.TransferenciaDestino)
+                .WithOne(transferencia => transferencia.ContaDestino)
+                .HasForeignKey<Transferencia>(transferencia => transferencia.ContaDestinoID);
 
-            // Relacionamento Transferencia - Conta (ContaOrigem e ContaDestino)
-            modelBuilder.Entity<Transferencia>()
-                .HasOne(t => t.ContaOrigem)
-                .WithMany()  // assumindo que uma Conta pode originar várias Transferências
-                .HasForeignKey(t => t.ContaOrigemID);
+            // Relacionamento de Conta com Emprestimo (UM PARA MUITOS)
+            modelBuilder.Entity<Conta>()
+                .HasMany(conta => conta.Emprestimos) // Uma conta pode ter várias contas (faz referencia à coleção de emprestimos na class Conta)
+                .WithOne(emprestimo => emprestimo.Conta) // Um empréstimo é relacionado à uma conta apenas
+                .HasForeignKey<Emprestimo>(emprestimo => emprestimo.ContaID); // A chave estrangeira na class Emprestimo vai ser a ContaID
 
-            modelBuilder.Entity<Transferencia>()
-                .HasOne(t => t.ContaDestino)
-                .WithMany()  // assumindo que uma Conta pode ser destino de várias Transferências
-                .HasForeignKey(t => t.ContaDestinoID);
+            // Relacionamento de Conta com CartaoCredito (UM PARA MUITOS)
+            modelBuilder.Entity<Conta>()
+                .HasMany(conta => conta.CartoesCredito)
+                .WithOne(cartao => cartao.Conta)
+                .HasForeignKey<CartaoCredito>(cartao => cartao.ContaID);
 
-            // Relacionamento Emprestimo - Conta
-            modelBuilder.Entity<Emprestimo>()
-                .HasOne(e => e.Conta)
-                .WithMany()  // assumindo que uma Conta pode ter vários Empréstimos
-                .HasForeignKey(e => e.ContaID);
+            // Relacionamento de Conta com Investimento (UM PARA MUITOS)
+            modelBuilder.Entity<Conta>()
+                .HasMany(conta => conta.Investimentos)
+                .WithOne(investimento => investimento.Conta)
+                .HasForeignKey<Investimento>(investimento => investimento.ContaID);
 
-            // Relacionamento CartaoCredito - Conta
-            modelBuilder.Entity<CartaoCredito>()
-                .HasOne(cc => cc.Conta)
-                .WithMany()  // assumindo que uma Conta pode ter vários Cartões de Crédito
-                .HasForeignKey(cc => cc.ContaID);
-
-            // Relacionamento Investimento - Conta
-            modelBuilder.Entity<Investimento>()
-                .HasOne(i => i.Conta)
-                .WithMany()  // assumindo que uma Conta pode ter vários Investimentos
-                .HasForeignKey(i => i.ContaID);
-
-            // Relacionamento Seguro - Cliente
-            modelBuilder.Entity<Seguro>()
-                .HasOne(s => s.Cliente)
-                .WithMany()  // assumindo que um Cliente pode ter vários Seguros
-                .HasForeignKey(s => s.ClienteID);
-
-            // Relacionamento Agencia - Endereco
-            modelBuilder.Entity<Agencia>()
-                .HasOne(a => a.Endereco)
-                .WithOne()  // assumindo que um Endereço pertence a uma única Agência
-                .OnDelete(DeleteBehavior.Cascade); // O endereço será excluído se a agência for excluída
+            modelBuilder.Entity<Conta>()
+                .HasMany(conta => conta.Movimentacao)
+                .WithOne(movimentacao => movimentacao.Conta)
+                .HasForeignKey<Movimentacao>(movimentacao => movimentacao.ContaID);
         }
-
     }
 }
-=======
-using BancoAPI.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace BancoAPI.Data;
-public class BancoDbContext : DbContext
-{
-    public DbSet<Cliente>? Cliente { get; set;}
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //optionsBuilder.UseSqlite("DataSource=banco.db;Cache=Shared");
-    }
-
-}
->>>>>>> 577702f69be60f800fbff6d9adfba9baaf9561c4

@@ -1,6 +1,7 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "rpyeZWndaDhG7vMXwfgXEXk0KPctxakWmHcOk01xnpeYFJxFxxTGRl/IvMxHjCp2PcGNlpTryBayTWwSeD7KAQ==",
 =======
 <<<<<<< HEAD
@@ -43,6 +44,9 @@
 =======
   "dgSpecHash": "Tq47lYOCjsZRb+aMWlQMKfeWWSIqXPtJ0nlnokLqmaRj4Qk5rOZFFQqopRCdGxl6c+Z3moQtHFrPbtcRAGwcHQ==",
 >>>>>>> 577702f69be60f800fbff6d9adfba9baaf9561c4
+=======
+  "dgSpecHash": "o9V2CUqLVVw/F68Rrd7PeNKvc95AB19e65NPOn1BpaWpItOayw815B+Y8pReFgpfP0D2WhPivnnsKtkhE0yqxw==",
+>>>>>>> 485a481e8d94eee1036f7055e03eaa1f6e1c503b
   "success": true,
   "projectFilePath": "c:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
   "expectedPackageFiles": [
@@ -67,5 +71,4 @@
     "C:\\Users\\willi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
   ],
   "logs": []
->>>>>>> 041aa708ad89d7b01d038c9c41a294aa3f4923bb
 }

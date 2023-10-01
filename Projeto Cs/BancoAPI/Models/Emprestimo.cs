@@ -3,6 +3,7 @@ namespace BancoAPI.Models;
 
 public class Emprestimo
 {
+
     private int tx_juros{get;} // taxa de juros
     
     public int Valor_soli{ get; set; } // valor solicitaod

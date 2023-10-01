@@ -30,7 +30,7 @@ namespace BancoAPI.Models
         // Construtor com parâmetros
         public Seguro(int seguroID, TipoSeguro tipo, decimal valorCoberto, decimal premio, DateTime dataInicio, DateTime dataFim, int clienteID)
         {
-            seguroID = SeguroID;
+            SeguroID = seguroID;
             Tipo = tipo;
             ValorCoberto = valorCoberto;
             Premio = premio;

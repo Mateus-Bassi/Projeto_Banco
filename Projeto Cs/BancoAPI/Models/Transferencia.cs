@@ -21,7 +21,7 @@ public class Tranferencia
     public Tranferencia() // Default
     {
         Valor = 0;
-        Date = "";
+        DataTransferencia = "";
     }
 
 }
