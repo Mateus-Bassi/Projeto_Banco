@@ -23,6 +23,8 @@ namespace BancoAPI.Models
 
         //Chave estrangeira para associar uma conta ao investimento 
         public int ContaID {get; set;}
+        //Permite que a classe Investimento navegue pela classe Conta
+        public Conta Conta {get; set;}
 
         //Construtor da Classe
         public Investimento(int investimentoID, TipoInvestimento tipo, decimal valorinicial, DateTime datainvestimento, decimal rentabilidademensal, DateTime dataregaste, int contaID)
