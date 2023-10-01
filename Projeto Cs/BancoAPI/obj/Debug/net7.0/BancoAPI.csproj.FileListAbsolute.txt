@@ -1,0 +1,7 @@
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.csproj.AssemblyReference.cache
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.AssemblyInfoInputs.cache
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.AssemblyInfo.cs
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.csproj.CoreCompileInputs.cache
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\obj\Debug\net7.0\BancoAPI.MvcApplicationPartsAssemblyInfo.cache

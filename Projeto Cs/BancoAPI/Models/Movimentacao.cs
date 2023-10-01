@@ -11,7 +11,7 @@ namespace BancoAPI.Models
     public class Movimentacao
     {
         // Chave primária
-        public int ID { get; set; }
+        public int MovimentacaoID { get; set; }
         
         public TipoMovimentacao Tipo { get; set; }
         public decimal Valor { get; set; }
@@ -26,7 +26,7 @@ namespace BancoAPI.Models
         // Construtor com parâmetros
         public Movimentacao(int id, TipoMovimentacao tipo, decimal valor, DateTime dataMovimentacao, int contaID)
         {
-            ID = id;
+            MovimentacaoID = id;
             Tipo = tipo;
             Valor = valor;
             DataMovimentacao = dataMovimentacao;
