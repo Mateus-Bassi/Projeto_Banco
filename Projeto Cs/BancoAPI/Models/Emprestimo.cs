@@ -10,6 +10,10 @@ public class Emprestimo
     public string Data_soli{ get; set; } // data da solicitacao
     public int n_parcelas{ get; set; }// numero de parcela
     
+    public int ContaID { get; set; } // Add por William
+
+    public virtual Conta Conta { get; set; }
+
     public Emprestimo() // Default
     {
         tx_juros = 20;

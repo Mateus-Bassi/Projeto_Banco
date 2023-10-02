@@ -31,8 +31,8 @@ namespace BancoAPI.Models
         public virtual Agencia Agencia { get; set; }  // Navegação para a entidade Agencia
 
         // Utilizamos dessa maneira em relações UM PARA MUITOS
-        public ICollection<Transferencia> TransferenciaOrigem { get; set; } // Transferências onde esta conta é a origem
-        public ICollection<Transferencia> TransferenciaDestino { get; set; } // Transferências onde esta conta é o destino
+        public ICollection<Transferencia> TransferenciasOrigem { get; set; } // Transferências onde esta conta é a origem
+        public ICollection<Transferencia> TransferenciasDestino { get; set; } // Transferências onde esta conta é o destino
         public ICollection<Emprestimo> Emprestimos { get; set; } // Emprestimos que são vinculados à essa conta
         public ICollection<CartaoCredito> CartoesCredito { get; set; } // Cartões de crédito que são vinculados à essa conta
         public ICollection<Investimento> Investimentos { get; set; } // Investimentos que são vinculados à essa conta
@@ -42,8 +42,8 @@ namespace BancoAPI.Models
         // Construtor padrão, sem parâmetros
             public Conta()
             {
-                TransferenciaOrigem = new List<Transferencia>();
-                TransferenciaDestino = new List<Transferencia>();
+                TransferenciasOrigem = new List<Transferencia>();
+                TransferenciasDestino = new List<Transferencia>();
                 Emprestimos = new List<Emprestimo>();
                 CartoesCredito = new List<CartaoCredito>();
                 Investimentos = new List<Investimento>();
@@ -61,8 +61,8 @@ namespace BancoAPI.Models
                 AgenciaID = agenciaID;
 
                 // Inicializando coleções
-                TransferenciaOrigem = new List<Transferencia>();
-                TransferenciaDestino = new List<Transferencia>();
+                TransferenciasOrigem = new List<Transferencia>();
+                TransferenciasDestino = new List<Transferencia>();
                 Emprestimos = new List<Emprestimo>();
                 CartoesCredito = new List<CartaoCredito>();
                 Investimentos = new List<Investimento>();
