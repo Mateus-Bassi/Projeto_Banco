@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BancoAPI.Models
 {
-    public class Cartao_Credito
+    public class CartaoCredito
     {   
         //Chave primaria da classe
         public int CartaoID {get; set;}
@@ -33,7 +33,7 @@ namespace BancoAPI.Models
         {
             Bloqueado = false;
         }
-        public Cartao_Credito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
+        public CartaoCredito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
         //Declaração do construtor com os parametros
         {
             CartaoID = cartaoID;

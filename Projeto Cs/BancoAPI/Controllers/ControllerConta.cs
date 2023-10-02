@@ -61,39 +61,36 @@ public class ContasController : ControllerBase
     }
 
 
-
-/*
-    // POST: api/Contas
-    // Adiciona uma nova conta
     [HttpPost]
-    public async Task<ActionResult<Conta>> PostConta(Conta conta)
+    [Route("criar")]
+    public async Task<ActionResult<Conta>> Criar(Conta conta)
     {
+        if(_context is null) return NotFound();
+        if(_context.Conta is null) return NotFound();
+
         _context.Conta.Add(conta);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetConta", new { id = conta.Id }, conta);
+        // Indica que um novo recurso foi criado. Inclui um cabeçalho que aponta para o novo recurso.
+        // nameof método de ação que lida com a obtenção de detalhes de uma única conta
+        // new id especifica os valores de rota para o método de ação (o ASAP irá usar essas informações para construir a URL)
+        // conta é o corpo da resposta, está retornando os detalhes da conta recém criada.
+        return CreatedAtAction(nameof(GetConta), new { id = conta.ContaID }, conta);
     }
 
-    // DELETE: api/Contas/5
-    // Deleta uma conta
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteConta(int id)
-    {
-        var conta = await _context.Conta.FindAsync(id);
-        if (conta == null)
-        {
-            return NotFound();
-        }
 
-        _context.Conta.Remove(conta);
+    [HttpPost]
+    [Route("depositar/{ContaID}")]
+    public async Task<ActionResult> Depositar(int ContaID, decimal valor)
+    {
+        var conta = await _context.Conta.FindAsync(ContaID);
+        if(conta == null) return NotFound();
+
+        conta.Saldo += valor;
+
+        _context.Entry(conta).State = EntityState.Modified;
         await _context.SaveChangesAsync();
 
-        return NoContent();
+        return Ok();
     }
-
-    private bool ContaExists(int id)
-    {
-        return _context.Conta.Any(e => e.Id == id);
-    }
-*/
 }

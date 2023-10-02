@@ -22,8 +22,4 @@ public class Emprestimo
         n_parcelas= 0;
 
     }
-
-
-
-
 }
