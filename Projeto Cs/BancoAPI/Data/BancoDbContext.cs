@@ -90,7 +90,7 @@ namespace BancoAPI.Data
             modelBuilder.Entity<Conta>()
                 .HasMany(conta => conta.CartoesCredito)
                 .WithOne(cartao => cartao.Conta)
-                .HasForeignKey<CartaoCredito>(cartao => cartao.ContaID);
+                .HasForeignKey(cartao => cartao.ContaID);
 
             // Relacionamento de Conta com Investimento (UM PARA MUITOS)
             modelBuilder.Entity<Conta>()
@@ -98,6 +98,7 @@ namespace BancoAPI.Data
                 .WithOne(investimento => investimento.Conta)
                 .HasForeignKey(investimento => investimento.ContaID);
 
+            // Relacionamento de Conta com Movimentacoes (UM PARA MUITOS)
             modelBuilder.Entity<Conta>()
                 .HasMany(conta => conta.Movimentacoes)
                 .WithOne(movimentacao => movimentacao.Conta)
