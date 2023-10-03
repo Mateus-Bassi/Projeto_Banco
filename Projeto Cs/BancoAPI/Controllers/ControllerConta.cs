@@ -93,4 +93,19 @@ public class ContasController : ControllerBase
 
         return Ok();
     }
+
+    [HttpPost]
+    [Route("depositar/{ContaID}")]
+    public async Task<ActionResult> Sacar(int ContaID, decimal valor)
+    {
+        var conta = await _context.Conta.FindAsync(ContaID);
+        if(conta == null) return NotFound();
+
+        conta.Saldo += valor;
+
+        _context.Entry(conta).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+
+        return Ok();
+    }
 }
