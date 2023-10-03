@@ -2,9 +2,6 @@ using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -71,39 +68,18 @@ public class ContasController : ControllerBase
         _context.Conta.Add(conta);
         await _context.SaveChangesAsync();
 
-        // Indica que um novo recurso foi criado. Inclui um cabeçalho que aponta para o novo recurso.
-        // nameof método de ação que lida com a obtenção de detalhes de uma única conta
-        // new id especifica os valores de rota para o método de ação (o ASAP irá usar essas informações para construir a URL)
-        // conta é o corpo da resposta, está retornando os detalhes da conta recém criada.
-        return CreatedAtAction(nameof(GetConta), new { id = conta.ContaID }, conta);
+        return Created("", conta);
     }
 
 
     [HttpPost]
-    [Route("depositar/{ContaID}")]
-    public async Task<ActionResult> Depositar(int ContaID, decimal valor)
+    [Route("AtualizarTipoConta/{ContaID}")]
+    public async Task<ActionResult> AtualizarTipoConta(int ContaID, TipoConta novoTipo)
     {
         var conta = await _context.Conta.FindAsync(ContaID);
         if(conta == null) return NotFound();
 
-        conta.Saldo += valor;
-
-        _context.Entry(conta).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-
-        return Ok();
-    }
-
-    [HttpPost]
-    [Route("depositar/{ContaID}")]
-    public async Task<ActionResult> Sacar(int ContaID, decimal valor)
-    {
-        var conta = await _context.Conta.FindAsync(ContaID);
-        if(conta == null) return NotFound();
-
-        conta.Saldo += valor;
-
-        _context.Entry(conta).State = EntityState.Modified;
+        conta.TipoConta = novoTipo;
         await _context.SaveChangesAsync();
 
         return Ok();
