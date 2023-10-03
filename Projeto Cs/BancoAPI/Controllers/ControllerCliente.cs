@@ -2,9 +2,7 @@ using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 [Route("api/[controller]")]
 [ApiController]
@@ -31,11 +29,19 @@ public class ControllerCliente : ControllerBase
 
     [HttpPost]
     [Route("Cadastrar/ Cliente")]
-    public IActionResult Cadastrar(Cliente cliente)
+    public IActionResult Cadastrar(Cliente cliente, string CPF )
     {
-        _context.Add(cliente);
-        _context.SaveChanges();
-        return Created("", cliente);
+        var Cliente_verifi = _context.Cliente.Find(CPF);
+
+        if (Cliente_verifi == null)
+        {
+            _context.Add(cliente);
+            _context.SaveChanges();
+            return Created("", cliente);
+            // Se a conta não existe, retorna NotFound
+            
+        }
+        return BadRequest("Cliente já existe");     
     }   
     [HttpPut]
     [Route("Alterar Cadastro")]
