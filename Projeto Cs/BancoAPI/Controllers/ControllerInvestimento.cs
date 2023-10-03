@@ -43,15 +43,26 @@ public class InvestimentoController : ControllerBase
 
     [HttpPost]
     [Route("criar")]
-    public async Task<ActionResult<Investimento>> CriarInvestimento([FromBody] Investimento investimento)
+    public async Task<ActionResult<Investimento>> CriarInvestimento(Investimento investimento)
     {
-        if (investimento == null)
-            return BadRequest("Dados inválidos para o investimento.");
+        if(_context is null) return NotFound();
+        if(_context.Investimento is null) return NotFound();
 
-        investimento.ID = _context.Investimento.Count() + 1;
+        if (investimento == null) return BadRequest("Dados inválidos para o investimento.");
+        
+        if (investimento.Tipo == TipoInvestimento.CDB){
+            //Taxa de investimento
+        } //else if TipoInvestimento.TesouroDireto
+        //else Fundo imobiliario
+
+
+        _context.Investimento.Add(investimento);
+        await _context.SaveChangesAsync();        
+
+        investimento.InvestimentoID = _context.Investimento.Count() + 1;
         _context.Investimento.Add(investimento);
         await _context.SaveChangesAsync();
 
-        return CreatedAtRoute("DefaultApi", new { id = investimento.ID }, investimento);
+        return CreatedAtRoute("DefaultApi", new { id = investimento.InvestimentoID }, investimento);
     }
 }
