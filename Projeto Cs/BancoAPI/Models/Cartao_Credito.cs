@@ -20,7 +20,7 @@ namespace BancoAPI.Models
         //Permite que a classe Cartão navegue pela classe Conta
         public Conta Conta {get; set;}
 
-        public Cartao_Credito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
+        public CartaoCredito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
         //Declaração do construtor com os parametros
         {
             CartaoID = cartaoID;

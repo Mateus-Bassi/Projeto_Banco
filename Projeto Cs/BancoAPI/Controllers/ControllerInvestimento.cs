@@ -2,9 +2,7 @@ using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 [Route("api/[controller]")]
 [ApiController]
@@ -45,24 +43,30 @@ public class InvestimentoController : ControllerBase
     [Route("criar")]
     public async Task<ActionResult<Investimento>> CriarInvestimento(Investimento investimento)
     {
-        if(_context is null) return NotFound();
-        if(_context.Investimento is null) return NotFound();
+        if (investimento == null)
+            return BadRequest("Dados inválidos para o investimento.");
 
-        if (investimento == null) return BadRequest("Dados inválidos para o investimento.");
-        
-        if (investimento.Tipo == TipoInvestimento.CDB){
-            //Taxa de investimento
-        } //else if TipoInvestimento.TesouroDireto
-        //else Fundo imobiliario
-
+        if (investimento.Tipo == TipoInvestimento.CDB)
+        {
+            investimento.Taxa = 0.05;  // Exemplo de taxa para CDB
+        }
+        else if (investimento.Tipo == TipoInvestimento.TesouroDireto)
+        {
+            investimento.Taxa = 0.03;  // Exemplo de taxa para Tesouro Direto
+        }
+        else if (investimento.Tipo == TipoInvestimento.FundoImobiliario)
+        {
+            investimento.Taxa = 0.08;  // Exemplo de taxa para Fundo Imobiliário
+        }
+        else
+        {
+            return BadRequest("Tipo de investimento não localizado.");
+        }
 
         _context.Investimento.Add(investimento);
-        await _context.SaveChangesAsync();        
 
-        investimento.InvestimentoID = _context.Investimento.Count() + 1;
-        _context.Investimento.Add(investimento);
         await _context.SaveChangesAsync();
 
-        return CreatedAtRoute("DefaultApi", new { id = investimento.InvestimentoID }, investimento);
+        return Created("", investimento);
     }
 }
