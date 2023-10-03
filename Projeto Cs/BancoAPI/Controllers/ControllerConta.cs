@@ -2,9 +2,6 @@ using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -72,51 +69,6 @@ public class ContasController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Created("", conta);
-    }
-
-
-    [HttpPost]
-    [Route("depositar/{ContaID}")]
-    public async Task<ActionResult> Depositar(int ContaID, decimal valor)
-    {
-        var conta = await _context.Conta.FindAsync(ContaID);
-        if(conta == null) return NotFound();
-
-        // Verifica se o valor de depósito é válido
-        if (valor <= 0)
-        {
-            return BadRequest("O valor de depósito deve ser positivo.");
-        }
-
-        conta.Saldo += valor;
-        await _context.SaveChangesAsync();
-
-        return Ok();
-    }
-
-    [HttpPost]
-    [Route("sacar/{ContaID}")]
-    public async Task<ActionResult> Sacar(int ContaID, decimal valor)
-    {
-        var conta = await _context.Conta.FindAsync(ContaID);
-        if(conta == null) return NotFound();
-
-        // Verifica se o valor de saque é válido
-        if (valor <= 0)
-        {
-            return BadRequest("O valor de saque deve ser positivo.");
-        }
-
-        // Verifica se há saldo suficiente na conta para o saque
-        if (conta.Saldo < valor)
-        {
-            return BadRequest("Saldo insuficiente para saque.");
-        }
-
-        conta.Saldo -= valor;
-        await _context.SaveChangesAsync();
-
-        return Ok();
     }
 
 
