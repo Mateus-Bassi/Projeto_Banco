@@ -16,8 +16,9 @@ namespace BancoAPI.Models
 
         public Transferencia() // Default
         {
+            ContaDestino = null;
             Valor = 0;
-            // Date = "";
+            DataTransferencia = DateTime.MinValue;
         }
 
     }

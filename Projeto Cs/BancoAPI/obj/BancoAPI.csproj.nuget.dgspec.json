@@ -1,7 +1,11 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+=======
     "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+>>>>>>> a8d6165557de0fabc832d9faa6acfd244f506019
   },
   "projects": {
     "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {
@@ -14,8 +18,12 @@
         "outputPath": "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
           "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> a8d6165557de0fabc832d9faa6acfd244f506019
         ],
         "originalTargetFrameworks": [
           "net7.0"
