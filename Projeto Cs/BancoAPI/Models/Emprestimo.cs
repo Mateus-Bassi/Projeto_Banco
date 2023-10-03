@@ -26,8 +26,4 @@ public class Emprestimo
         n_parcelas= 10;
         valor_pagar = Valor_soli * tx_juros;
     }
-
-
-
-
 }

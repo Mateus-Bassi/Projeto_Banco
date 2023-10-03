@@ -28,14 +28,11 @@ public class ControllerTranferencia : ControllerBase
         return transferencia;
     }
     [HttpPost]
-    [Route("Cadastrar/ transferencia")]
+    [Route("Nova Transferencia/ {ContaDestinoId}")]
     public IActionResult Cadastrar(Transferencia Valor)
     {
         _context.Add(Valor);
         _context.SaveChanges();
-        if  (_context.Transferencia.ContaDestinoID is null)
-            return NotFound();
-        
         return Created("", Valor);
     } 
 }
