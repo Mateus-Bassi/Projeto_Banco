@@ -71,11 +71,7 @@ public class ContasController : ControllerBase
         _context.Conta.Add(conta);
         await _context.SaveChangesAsync();
 
-        // Indica que um novo recurso foi criado. Inclui um cabeçalho que aponta para o novo recurso.
-        // nameof método de ação que lida com a obtenção de detalhes de uma única conta
-        // new id especifica os valores de rota para o método de ação (o ASAP irá usar essas informações para construir a URL)
-        // conta é o corpo da resposta, está retornando os detalhes da conta recém criada.
-        return CreatedAtAction(nameof(GetConta), new { id = conta.ContaID }, conta);
+        return Created("", conta);
     }
 
 
@@ -86,24 +82,52 @@ public class ContasController : ControllerBase
         var conta = await _context.Conta.FindAsync(ContaID);
         if(conta == null) return NotFound();
 
-        conta.Saldo += valor;
+        // Verifica se o valor de depósito é válido
+        if (valor <= 0)
+        {
+            return BadRequest("O valor de depósito deve ser positivo.");
+        }
 
-        _context.Entry(conta).State = EntityState.Modified;
+        conta.Saldo += valor;
         await _context.SaveChangesAsync();
 
         return Ok();
     }
 
     [HttpPost]
-    [Route("depositar/{ContaID}")]
+    [Route("sacar/{ContaID}")]
     public async Task<ActionResult> Sacar(int ContaID, decimal valor)
     {
         var conta = await _context.Conta.FindAsync(ContaID);
         if(conta == null) return NotFound();
 
-        conta.Saldo += valor;
+        // Verifica se o valor de saque é válido
+        if (valor <= 0)
+        {
+            return BadRequest("O valor de saque deve ser positivo.");
+        }
 
-        _context.Entry(conta).State = EntityState.Modified;
+        // Verifica se há saldo suficiente na conta para o saque
+        if (conta.Saldo < valor)
+        {
+            return BadRequest("Saldo insuficiente para saque.");
+        }
+
+        conta.Saldo -= valor;
+        await _context.SaveChangesAsync();
+
+        return Ok();
+    }
+
+
+    [HttpPost]
+    [Route("AtualizarTipoConta/{ContaID}")]
+    public async Task<ActionResult> AtualizarTipoConta(int ContaID, TipoConta novoTipo)
+    {
+        var conta = await _context.Conta.FindAsync(ContaID);
+        if(conta == null) return NotFound();
+
+        conta.TipoConta = novoTipo;
         await _context.SaveChangesAsync();
 
         return Ok();

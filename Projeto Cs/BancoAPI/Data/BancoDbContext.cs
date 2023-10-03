@@ -69,10 +69,10 @@ namespace BancoAPI.Data
                 .HasForeignKey(seguro => seguro.ClienteID);
 
             // Relacionamento Conta para Transferencia de Origem (UM PARA MUITOS)
-            modelBuilder.Entity<Conta>()
-                .HasMany(conta => conta.TransferenciasOrigem)
-                .WithOne(transferencia => transferencia.ContaOrigem)
-                .HasForeignKey(transferencia => transferencia.ContaOrigemID);
+            // modelBuilder.Entity<Conta>()
+            //     .HasMany(conta => conta.TransferenciasOrigem)
+            //     .WithOne(transferencia => transferencia.ContaOrigem)
+            //     .HasForeignKey(transferencia => transferencia.ContaOrigemID);
 
             // Relacionamento de Conta para Transferências de Destino (UM PARA MUITOS)
             modelBuilder.Entity<Conta>()
