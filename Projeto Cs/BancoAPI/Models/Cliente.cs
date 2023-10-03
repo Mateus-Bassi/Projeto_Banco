@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BancoAPI.Models;
 public class Cliente
 {
-    // Modificado por william (me chama)
-    public int Id { get; set; }
+    public int id { get; set; }
 
     public string Name { get; set; }
     public string CPF { get; set; }
@@ -12,10 +11,10 @@ public class Cliente
     public string Email { get; set; }
     public string Telefone { get; set; }
 
-    public virtual ICollection<Conta> Contas { get; set; } // Adicionado por William (me chama kkkk)
-    public virtual ICollection<Endereco> Enderecos { get; set; } // Adicionado por William (me chama kkkk)
-    public virtual ICollection<ClienteEndereco> ClienteEnderecos { get; set; } // Adicionado por William (me chama kkkk)
-    public virtual ICollection<Seguro> Seguros { get; set; }    // Adicionado por William (me chama kkkk)
+    public virtual ICollection<Conta> Contas { get; set; } 
+    public virtual ICollection<Endereco> Enderecos { get; set; } 
+    public virtual ICollection<ClienteEndereco> ClienteEnderecos { get; set; } 
+    public virtual ICollection<Seguro> Seguros { get; set; }    
 
     // 
     public Cliente() // Default 
