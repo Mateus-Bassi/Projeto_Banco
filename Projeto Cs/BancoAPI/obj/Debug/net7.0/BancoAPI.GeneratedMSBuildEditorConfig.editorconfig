@@ -10,6 +10,8 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BancoAPI
 build_property.RootNamespace = BancoAPI
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\Acer\OneDrive\Facudalde\Desenvolvimento de Software Visual\Projeto Banco\Projeto_Banco\Projeto Cs\BancoAPI\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
@@ -17,11 +19,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\Acer\OneDrive\Facudalde\Desenvolvimento de Software Visual\Projeto Banco\Projeto_Banco\Projeto Cs\BancoAPI
 =======
 <<<<<<< HEAD
+>>>>>>> 42042b58b49ef7469962e7763c070789dc1db199
 build_property.ProjectDir = c:\Users\dados\OneDrive\Desktop\c#\Projeto\Projeto_Banco\Projeto Cs\BancoAPI\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = c:\Users\dados\OneDrive\Desktop\c#\Projeto\Projeto_Banco\Projeto Cs\BancoAPI
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
 build_property.ProjectDir = c:\Users\willi\OneDrive\Documentos\FaculdadePasta\4 Semestre\Software visual\testeee\Projeto_Banco\Projeto Cs\BancoAPI\
@@ -38,4 +43,5 @@ build_property.MSBuildProjectDirectory = c:\Users\juanv\Desktop\Trab\Projeto_Ban
 >>>>>>> 04a2b6ac373000b168593688a214d042818db6bf
 >>>>>>> 5b422b93557e6dce63e716c2bf72c979aaa09c9a
 >>>>>>> b8632d0c16ace141117481a332a6de9191cbfdda
+>>>>>>> 42042b58b49ef7469962e7763c070789dc1db199
 build_property._RazorSourceGeneratorDebug = 
