@@ -2,10 +2,22 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
-    "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+    "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+        "projectName": "BancoAPI",
+        "projectPath": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Acer\\OneDrive\\Facudalde\\Desenvolvimento de Software Visual\\Projeto Banco\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
 =======
-    "c:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
->>>>>>> 4b3f6c5706d76c6fabfab1df201765932e99dcf6
+    "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {}
   },
   "projects": {
     "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj": {
@@ -18,12 +30,8 @@
         "outputPath": "c:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\dados\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-          "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 4b3f6c5706d76c6fabfab1df201765932e99dcf6
+>>>>>>> b8632d0c16ace141117481a332a6de9191cbfdda
         ],
         "originalTargetFrameworks": [
           "net7.0"

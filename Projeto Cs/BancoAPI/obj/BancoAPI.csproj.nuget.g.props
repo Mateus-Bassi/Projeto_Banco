@@ -5,12 +5,20 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+<<<<<<< HEAD
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Acer\.nuget\packages\</NuGetPackageFolders>
+=======
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\dados\.nuget\packages\</NuGetPackageFolders>
+>>>>>>> b8632d0c16ace141117481a332a6de9191cbfdda
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.7.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
+    <SourceRoot Include="C:\Users\Acer\.nuget\packages\" />
+=======
     <SourceRoot Include="C:\Users\dados\.nuget\packages\" />
+>>>>>>> b8632d0c16ace141117481a332a6de9191cbfdda
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.props')" />
@@ -20,11 +28,13 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
 <<<<<<< HEAD
-    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\dados\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\Acer\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Acer\.nuget\packages\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
+    <PkgMicrosoft_EntityFrameworkCore_Tools_DotNet Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools_DotNet)' == '' ">C:\Users\Acer\.nuget\packages\microsoft.entityframeworkcore.tools.dotnet\2.0.3</PkgMicrosoft_EntityFrameworkCore_Tools_DotNet>
 =======
-    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\willi\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\willi\.nuget\packages\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
-    <PkgMicrosoft_EntityFrameworkCore_Tools_DotNet Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools_DotNet)' == '' ">C:\Users\willi\.nuget\packages\microsoft.entityframeworkcore.tools.dotnet\2.0.3</PkgMicrosoft_EntityFrameworkCore_Tools_DotNet>
->>>>>>> 4b3f6c5706d76c6fabfab1df201765932e99dcf6
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\dados\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\dados\.nuget\packages\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
+    <PkgMicrosoft_EntityFrameworkCore_Tools_DotNet Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools_DotNet)' == '' ">C:\Users\dados\.nuget\packages\microsoft.entityframeworkcore.tools.dotnet\2.0.3</PkgMicrosoft_EntityFrameworkCore_Tools_DotNet>
+>>>>>>> b8632d0c16ace141117481a332a6de9191cbfdda
   </PropertyGroup>
 </Project>

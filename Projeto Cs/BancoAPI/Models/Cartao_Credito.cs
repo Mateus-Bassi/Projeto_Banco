@@ -20,20 +20,7 @@ namespace BancoAPI.Models
         //Permite que a classe Cartão navegue pela classe Conta
         public Conta Conta {get; set;}
 
-        //Parametros especificos para aumentar o limite, Bloquear cartão ou Desbloquear
-        public void Aumentar_Limite(decimal Novo_Limite)
-        {
-            Limite += Novo_Limite;           
-        }
-        public void Bloquear()
-        {
-            Bloqueado = true;
-        }
-        public void Desbloquear()
-        {
-            Bloqueado = false;
-        }
-        public CartaoCredito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
+        public Cartao_Credito(int cartaoID, string num_cartao, DateTime data_val, string codigo_seg, decimal limite, bool bloqueado, int contaid)
         //Declaração do construtor com os parametros
         {
             CartaoID = cartaoID;
