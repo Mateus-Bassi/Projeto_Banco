@@ -61,7 +61,6 @@ public class CartaoCreditoController : ControllerBase
 
         return Created("",cartao);
         
-<<<<<<< HEAD
     } 
     //HTTP POST para aumentar o limite
     [HttpPost]
@@ -103,13 +102,3 @@ public class CartaoCreditoController : ControllerBase
         return Ok($"O cartão foi {status} com sucesso.");
 }
 }
-=======
-    }
-//     [HttpPost]
-//     [Route("AumentarLimite")]
-//     public async Task<ActionResult<Investimento>> AumentarLimite(decimal Limite)
-//     {
-        
-//     }
- }
->>>>>>> 668af1818deac11511a8b8458b19250f7157da63

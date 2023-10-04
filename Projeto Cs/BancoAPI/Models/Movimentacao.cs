@@ -5,8 +5,7 @@ namespace BancoAPI.Models
     public enum TipoMovimentacao
     {
         Saque,
-        Deposito,
-        Transferencia
+        Deposito
     }
 
     public class Movimentacao
