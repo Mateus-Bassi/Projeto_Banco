@@ -22,6 +22,7 @@ namespace BancoAPI.Models
         public DateTime DataInvestimento {get; set;}
         public decimal Rentabilidade_Mensal {get; set;}
         public DateTime DataResgate {get; set;}
+        
 
         //Chave estrangeira para associar uma conta ao investimento 
         public int ContaID {get; set;}

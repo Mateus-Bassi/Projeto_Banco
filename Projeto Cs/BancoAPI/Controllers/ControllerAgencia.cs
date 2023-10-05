@@ -1,104 +1,100 @@
+using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace BancoAPI.Controllers
+
+[Route("api/[controller]")]
+[ApiController]
+public class AgenciaController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AgenciaController : ControllerBase
+    private readonly BancoDbContext _context;
+
+    public AgenciaController(BancoDbContext context)
     {
-        private readonly BancoDbContext _context;
+        _context = context;
+    }
 
-        public AgenciaController(BancoDbContext context)
+    
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Agencia>>> GetAgencia()
+    {
+        return await _context.Agencia.Include(a => a.Endereco).ToListAsync();
+    }
+
+    
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Agencia>> GetAgencia(int id)
+    {
+        var agencia = await _context.Agencia.Include(a => a.Endereco).FirstOrDefaultAsync(a => a.AgenciaID == id);
+
+        if (agencia == null)
         {
-            _context = context;
+            return NotFound();
         }
 
-        
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Agencia>>> GetAgencias()
+        return agencia;
+    }
+
+    
+    [HttpPost]
+    public async Task<ActionResult<Agencia>> PostAgencia(Agencia agencia)
+    {
+        _context.Agencia.Add(agencia);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetAgencia", new { id = agencia.AgenciaID }, agencia);
+    }
+
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutAgencia(int id, Agencia agencia)
+    {
+        if (id != agencia.AgenciaID)
         {
-            return await _context.Agencias.Include(a => a.Endereco).ToListAsync();
+            return BadRequest();
         }
 
-       
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Agencia>> GetAgencia(int id)
-        {
-            var agencia = await _context.Agencias.Include(a => a.Endereco).FirstOrDefaultAsync(a => a.AgenciaID == id);
+        _context.Entry(agencia).State = EntityState.Modified;
 
-            if (agencia == null)
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!AgenciaExists(id))
             {
                 return NotFound();
             }
-
-            return agencia;
-        }
-
-       
-        [HttpPost]
-        public async Task<ActionResult<Agencia>> PostAgencia(Agencia agencia)
-        {
-            _context.Agencias.Add(agencia);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetAgencia", new { id = agencia.AgenciaID }, agencia);
-        }
-
-        
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAgencia(int id, Agencia agencia)
-        {
-            if (id != agencia.AgenciaID)
+            else
             {
-                return BadRequest();
+                throw;
             }
-
-            _context.Entry(agencia).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AgenciaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
         }
 
-        
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAgencia(int id)
+        return NoContent();
+    }
+
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAgencia(int id)
+    {
+        var agencia = await _context.Agencia.FindAsync(id);
+        if (agencia == null)
         {
-            var agencia = await _context.Agencias.FindAsync(id);
-            if (agencia == null)
-            {
-                return NotFound();
-            }
-
-            _context.Agencias.Remove(agencia);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return NotFound();
         }
 
-        private bool AgenciaExists(int id)
-        {
-            return _context.Agencias.Any(e => e.AgenciaID == id);
-        }
+        _context.Agencia.Remove(agencia);
+        await _context.SaveChangesAsync();
+
+        return Ok();
+    }
+
+    private bool AgenciaExists(int id)
+    {
+        return _context.Agencia.Any(e => e.AgenciaID == id);
     }
 }
+

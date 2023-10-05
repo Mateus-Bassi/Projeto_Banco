@@ -16,8 +16,7 @@ namespace BancoAPI.Controllers
             
             List<Endereco> enderecos = new List<Endereco>
             {
-                new Endereco("Rua Principal", "123", "Centro", "Cidade1", "Estado1", "12345-678"),
-                new Endereco("Rua Secundária", "456", "Subúrbio", "Cidade2", "Estado2", "98765-432")
+                //
             };
 
             return Ok(enderecos);
@@ -27,24 +26,24 @@ namespace BancoAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Endereco> Get(int id)
         {
+            //
+            return Ok();
             
-            var endereco = new Endereco("Rua Principal", "123", "Centro", "Cidade1", "Estado1", "12345-678");
-            return Ok(endereco);
         }
 
         
         [HttpPost]
-        public IActionResult Post([FromBody] Endereco endereco)
+        public IActionResult Post(Endereco endereco)
         {
-            
-            return CreatedAtAction("Get", new { id = endereco.Id }, endereco);
+            //
+            return CreatedAtAction("Get", new { id = endereco.EnderecoID }, endereco);
         }
 
         
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Endereco endereco)
+        public IActionResult Put(int id, Endereco endereco)
         {
-            
+            //
             return NoContent();
         }
 
@@ -52,7 +51,7 @@ namespace BancoAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            
+            //
             return NoContent();
         }
     }
