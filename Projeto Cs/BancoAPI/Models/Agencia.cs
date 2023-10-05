@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-// Modificado por WIllima (me chama kkkk)
+
 
 
 namespace BancoAPI.Models

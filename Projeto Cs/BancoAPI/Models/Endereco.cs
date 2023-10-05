@@ -28,11 +28,3 @@ namespace BancoAPI.Models{
         }
     }
 }
-    //Endereco endereco = new Endereco("Rua Principal", "123", "Centro", "Cidade", "Estado", "12345-678");
-
-    //Console.WriteLine($"Rua: {endereco.Rua}");
-    //Console.WriteLine($"Número: {endereco.Numero}");
-    //Console.WriteLine($"Bairro: {endereco.Bairro}");
-    //Console.WriteLine($"Cidade: {endereco.Cidade}");
-    //Console.WriteLine($"Estado: {endereco.Estado}");
-    //Console.WriteLine($"CEP: {endereco.CEP}");

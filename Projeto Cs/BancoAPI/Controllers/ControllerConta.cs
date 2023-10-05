@@ -18,6 +18,7 @@ public class ContasController : ControllerBase
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<Conta>>> GetContas()
     {
+        // Retorna uma lista das contas que estão no nosso Banco de Dados
         if(_context is null) return NotFound();
         if(_context.Conta is null) return NotFound();
         return await _context.Conta.ToListAsync();
@@ -27,6 +28,7 @@ public class ContasController : ControllerBase
     [Route("buscar/{ContaID}")]
     public async Task<ActionResult<Conta>> GetConta(int contaID)
     {
+        // Retorna uma conta especificada pelo ID
         if(_context is null) return NotFound();
         if(_context.Conta is null) return NotFound();
         var conta = await _context.Conta.FindAsync(contaID);
@@ -38,12 +40,15 @@ public class ContasController : ControllerBase
     [Route("alterar/{ContaID}")]
     public async Task<ActionResult> Alterar(int ContaID, Conta conta)
     {
+        // Altera a Conta especificada pelo ID
+        // Recebe um novo objeto Conta com os atributos "novos"
         if(_context is null) return NotFound();
         if(_context.Conta is null) return NotFound();
         
         var contaExistente = await _context.Conta.FindAsync(ContaID);
         if(contaExistente is null) return NotFound();
 
+        // Atribuindo para a Conta especificada os atributos do objeto conta
         contaExistente.NumeroConta = conta.NumeroConta;
         contaExistente.TipoConta = conta.TipoConta;
         contaExistente.Saldo = conta.Saldo;
@@ -62,6 +67,7 @@ public class ContasController : ControllerBase
     [Route("criar")]
     public async Task<ActionResult<Conta>> Criar(Conta conta)
     {
+        // Criando uma conta e colocando no banco de dados
         if(_context is null) return NotFound();
         if(_context.Conta is null) return NotFound();
 
@@ -76,6 +82,8 @@ public class ContasController : ControllerBase
     [Route("AtualizarTipoConta/{ContaID}")]
     public async Task<ActionResult> AtualizarTipoConta(int ContaID, TipoConta novoTipo)
     {
+        // Atualizando o tipo da conta especificada pelo ID
+        // Recebe também o tipo da Conta no parâmetro
         var conta = await _context.Conta.FindAsync(ContaID);
         if(conta == null) return NotFound();
 
