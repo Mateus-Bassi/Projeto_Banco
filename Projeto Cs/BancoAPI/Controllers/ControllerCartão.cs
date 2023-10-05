@@ -7,10 +7,13 @@ using Microsoft.EntityFrameworkCore;
 [ApiController]
 public class CartaoCreditoController : ControllerBase
 {
+    // Variável para armazenar o contexto do banco de dados
     private readonly BancoDbContext _context;
 
+    // Construtor da classe que aceita o contexto do banco de dados como parâmetro
     public CartaoCreditoController(BancoDbContext context)
     {
+        // Atribui o contexto do banco de dados à _context
         _context = context;
     }
 
@@ -19,11 +22,15 @@ public class CartaoCreditoController : ControllerBase
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<CartaoCredito>>> GetCartoes()
     {
+        // Aguarda a obtenção da lista de cartões de crédito de forma assíncrona do banco de dados
         var cartoes = await _context.CartaoCredito.ToListAsync();
-
+        
+        //Verifica se não foram encontrados nenhum cartão ou se a lista está vazia 
         if (cartoes == null || cartoes.Count == 0)
-            return NotFound();
+            //Retorna nao encontrado 
+            return NotFound(); 
 
+        //Caso contrario retorna a lista de cartões
         return cartoes;
     }
 
@@ -32,11 +39,15 @@ public class CartaoCreditoController : ControllerBase
     [Route("buscar/{CartaoID}")]
     public async Task<ActionResult<CartaoCredito>> GetCartao(int cartaoID)
     {
+        //Esta linha de código está realizando uma operação assíncrona para buscar um cartão de crédito no banco de dados com base no cartaoID. 
+        //Permitindo que o programa aguarde a conclusão antes de prosseguir.
         var cartao = await _context.CartaoCredito.FindAsync(cartaoID);
+
         // verifica se o cartão for nulo se for retornar notfound 
         if (cartao == null)
             return NotFound();
 
+        //Caso contrario retorna o cartão de crédito
         return cartao;
     }
 
@@ -45,23 +56,34 @@ public class CartaoCreditoController : ControllerBase
     [Route("criar_cartao")]
     public async Task<ActionResult<CartaoCredito>> CriarCartao(CartaoCredito cartao)
     {
-        // verifica se a variavel context é nula se for indica que não há uma instancia valida
+        // Verifica se a variavel context é nula se for indica que não há uma instancia valida
         if(_context is null) return NotFound();
-        // verifica se a context do cartão for nula, se for não há cartões de crédito disponíveis no contexto do banco de dados
+
+        // Verifica se a context do cartão for nula, se for não há cartões de crédito disponíveis no contexto do banco de dados
         if(_context.CartaoCredito is null) return NotFound();
 
+        // Se verificar e for null retorna BadRequest mostrando ao usuario que os dados para criar o cartão foram invalidados 
         if (cartao == null) return BadRequest("Dados inválidos para o cartão de crédito.");
-        
+
+        //Caso de certo nessa linha de codigo adiciona o cartão ao banco de dados 
         _context.CartaoCredito.Add(cartao);
+
+        //Aqui salvamos de forma assincrona o banco de dados do cartão inserindo efetivamente 
         await _context.SaveChangesAsync();
+
+        //Definimos o CartaoID como objeto do cartao e incrementamos o número de cartões existentes no banco e adicionamos 1 para obter um novo ID único
 
         cartao.CartaoID = _context.CartaoCredito.Count() + 1;
+        
+        //Adiciona o objeto cartões a colecao de cartões do banco de dados
         _context.CartaoCredito.Add(cartao);
+
+        //Com o await, o programa aguarda até que a operação SaveChangesAsync() seja concluída e as alterações sejam salvas no banco de dados antes de prosseguir. 
         await _context.SaveChangesAsync();
 
+        //Retorna uma resposta que indica que foi criado o cartão de credito 
         return Created("",cartao);
         
-<<<<<<< HEAD
     } 
     //HTTP POST para aumentar o limite
     [HttpPost]
@@ -69,6 +91,7 @@ public class CartaoCreditoController : ControllerBase
     public async Task<ActionResult<CartaoCredito>> AumentarLimite(int cartaoID, decimal Limite)
     {
         var cartao = await _context.CartaoCredito.FindAsync(cartaoID);
+
         //Verifica se cartão for null o cartão nao é encontrado
         if (cartao == null)
             return NotFound("Cartão de crédito não encontrado.");
@@ -90,26 +113,28 @@ public class CartaoCreditoController : ControllerBase
     [Route("Bloqueado")]
    public async Task<ActionResult<CartaoCredito>> Bloqueado(int cartaoID, bool bloquear)
     {
+        // Procura o cartão pelo cartãoID
         var cartao = await _context.CartaoCredito.FindAsync(cartaoID);
 
-        if (cartao == null) return NotFound("Cartão de crédito não encontrado.");
+            //Com o await o programa aguarda até que a operação FindAsync seja concluída e o resultado esteja disponível antes de prosseguir
 
+        if (cartao == null) return NotFound("Cartão de crédito não encontrado.");
+        
+        //Aqui atualiza o cartão para bloqueado ou desbloqueado
         cartao.Bloqueado = bloquear;
 
+        // Marca o cartão como modificado
         _context.Entry(cartao).State = EntityState.Modified;
+
+        //Salva as alterações do estado do cartão 
         await _context.SaveChangesAsync();
 
+            //Com o await, o programa aguarda até que a operação SaveChangesAsync() seja concluída e as alterações sejam salvas no banco de dados antes de prosseguir. 
+
+        //Essa string gera uma mensagem se o cartão foi bloqueado ou desbloqueado para o usuario
         string status = bloquear ? "bloqueado" : "desbloqueado";
+
+        //Retorna uma resposta se o cartão foi bloqueado ou desbloqueado com sucesso  
         return Ok($"O cartão foi {status} com sucesso.");
 }
 }
-=======
-    }
-//     [HttpPost]
-//     [Route("AumentarLimite")]
-//     public async Task<ActionResult<Investimento>> AumentarLimite(decimal Limite)
-//     {
-        
-//     }
- }
->>>>>>> 668af1818deac11511a8b8458b19250f7157da63
