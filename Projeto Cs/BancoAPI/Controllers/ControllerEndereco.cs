@@ -2,89 +2,85 @@ using BancoAPI.Data;
 using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace BancoAPI.Controllers
+
+[Route("api/[controller]")]
+[ApiController]
+public class ControllerEndereco : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ControllerEndereco : ControllerBase
+    private readonly BancoDbContext _context;
+
+    public ControllerEndereco(BancoDbContext context)
     {
-        private readonly BancoDbContext _context;
+        _context = context;
+    }
 
-        public ControllerEndereco(BancoDbContext context)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Endereco>>> Get()
+    {
+        if (_context is null || _context.Endereco is null)
         {
-            _context = context;
+            return BadRequest("Contexto ou Endereco não encontrado");
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Endereco>>> Get()
-        {
-            if (_context is null || _context.Endereco is null)
-            {
-                return BadRequest("Contexto ou Endereco não encontrado");
-            }
+        var enderecos = await _context.Endereco.ToListAsync();
+        return Ok(enderecos);
+    }
 
-            var enderecos = await _context.Endereco.ToListAsync();
-            return Ok(enderecos);
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Endereco>> Get(int id)
+    {
+        if (_context is null || _context.Endereco is null)
+        {
+            return BadRequest("Contexto ou Endereco não encontrado");
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Endereco>> Get(int id)
+        var endereco = await _context.Endereco.FindAsync(id);
+        if (endereco is null)
         {
-            if (_context is null || _context.Endereco is null)
-            {
-                return BadRequest("Contexto ou Endereco não encontrado");
-            }
-
-            var endereco = await _context.Endereco.FindAsync(id);
-            if (endereco is null)
-            {
-                return NotFound();
-            }
-
-            return endereco;
+            return NotFound();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Criar(int EnderecoID, Endereco endereco)
-        {
-            if (_context is null || _context.Endereco is null)
-            {
-                return BadRequest("Contexto ou Endereco não encontrado");
-            }
+        return endereco;
+    }
 
-             _context.Endereco.Add(endereco);
+    [HttpPost]
+    public async Task<IActionResult> Criar(Endereco endereco)
+    {
+        if (_context is null || _context.Endereco is null)
+        {
+            return BadRequest("Contexto ou Endereco não encontrado");
+        }
+
+            _context.Endereco.Add(endereco);
+    await _context.SaveChangesAsync();
+
+    return Created("", endereco);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutAsync(int id, Endereco endereco)
+    {
+        // Atribuindo para o Endereco especifico os atributos do objeto endereco
+        if(_context is null) return NotFound();
+        if(_context.Endereco is null) return NotFound();
+    
+        var enderecoExistente = await _context.Endereco.FindAsync(id);
+        if(enderecoExistente is null) return NotFound();
+
+    
+        enderecoExistente.Rua = endereco.Rua;
+        enderecoExistente.Numero = endereco.Numero;
+        enderecoExistente.Bairro = endereco.Bairro;
+        enderecoExistente.Cidade = endereco.Cidade;
+        enderecoExistente.Estado = endereco.Estado;
+        enderecoExistente.CEP = endereco.CEP;
+
+        _context.Endereco.Update(enderecoExistente);
         await _context.SaveChangesAsync();
 
-        return Created("", endereco);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, Endereco endereco)
-        {
-            // Atribuindo para o Endereco especifico os atributos do objeto endereco
-            if(_context is null) return NotFound();
-            if(_context.Endereco is null) return NotFound();
-        
-            var enderecoExistente = await _context.Endereco.FindAsync(id);
-            if(enderecoExistente is null) return NotFound();
-
-        
-            enderecoExistente.Rua = endereco.Rua;
-            enderecoExistente.Numero = endereco.Numero;
-            enderecoExistente.Bairro = endereco.Bairro;
-            enderecoExistente.Cidade = endereco.Cidade;
-            enderecoExistente.Estado = endereco.Estado;
-            enderecoExistente.CEP = endereco.CEP;
-
-            _context.Endereco.Update(enderecoExistente);
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
+        return Ok();
+    }
 
     [HttpDelete]
     [Route("deletar/{EnderecoID}")]
@@ -97,7 +93,7 @@ namespace BancoAPI.Controllers
 
         await _context.SaveChangesAsync();
         return Ok();
-    
+
     }
 }
-}
+
