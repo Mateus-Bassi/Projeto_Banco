@@ -3,6 +3,8 @@ using BancoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+// Controller da Movimentação
+
 [Route("api/[controller]")]
 [ApiController]
 public class MovimentacaoController : ControllerBase
@@ -18,6 +20,7 @@ public class MovimentacaoController : ControllerBase
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<Movimentacao>>> GetMovimentacoes()
     {
+        // Retorna uma lista das movimentações presente no nosso Banco de Dados
         if(_context is null) return NotFound();
         if(_context.Movimentacao is null) return NotFound();
         return await _context.Movimentacao.ToListAsync();
@@ -27,6 +30,7 @@ public class MovimentacaoController : ControllerBase
     [Route("buscar/{MovimentacaoID}")]
     public async Task<ActionResult<Movimentacao>> GetMovimentacao(int movimentacaoID)
     {
+        // Retorna determinada Movimentação de acordo com o seu ID
         if(_context is null) return NotFound();
         if(_context.Movimentacao is null) return NotFound();
         var movimentacao = await _context.Movimentacao.FindAsync(movimentacaoID);
@@ -38,6 +42,7 @@ public class MovimentacaoController : ControllerBase
     [Route("criar")]
     public async Task<ActionResult<Conta>> Criar(Movimentacao movimentacao)
     {
+        // Cria uma nova Movimentação e insere ela no Banco de Dados
         if(_context is null) return NotFound();
         if(_context.Movimentacao is null) return NotFound();
 
@@ -49,18 +54,19 @@ public class MovimentacaoController : ControllerBase
 
     [HttpPost]
     [Route("movimentar/{ContaID}")]
-    public async Task<ActionResult> Movimentar(int ContaID, decimal valor, Movimentacao movimentacao)
+    public async Task<ActionResult> Movimentar(decimal valor, Movimentacao movimentacao)
     {
-        var conta = await _context.Conta.FindAsync(ContaID);
+        // Realiza as operações de movimentação de acordo com o TipoMovimentacao (Saque ou Depósito)
+        var conta = await _context.Conta.FindAsync(movimentacao.ContaID);
         if(conta == null) return NotFound();
 
         if(movimentacao.Tipo == TipoMovimentacao.Saque)
         {
+            // Se o TipoMovimentacao for Saque
             if (valor <= 0)
             {
                 return BadRequest("O valor de saque deve ser positivo.");
             }
-
             // Verifica se há saldo suficiente na conta para o saque
             if (conta.Saldo < valor)
             {
@@ -69,19 +75,18 @@ public class MovimentacaoController : ControllerBase
 
             conta.Saldo -= valor;
             await _context.SaveChangesAsync();
-
             return Ok();
         }
         else if(movimentacao.Tipo == TipoMovimentacao.Deposito)
         {
+            // Se o TipoMovimentacao for Depósito
             if (valor <= 0)
             {
                 return BadRequest("O valor de depósito deve ser positivo.");
             }
-
+            
             conta.Saldo += valor;
             await _context.SaveChangesAsync();
-
             return Ok();
         }
         else

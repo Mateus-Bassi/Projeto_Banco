@@ -17,7 +17,7 @@ namespace BancoAPI.Models
         public int ContaID { get; set; }
 
         public string NumeroConta { get; set; }
-        public TipoConta TipoConta { get; set; }  // Tipo de conta é um ENUM
+        public TipoConta TipoConta { get; set; }
         public decimal Saldo { get; set; }
         public DateTime DataAbertura { get; set; }
 

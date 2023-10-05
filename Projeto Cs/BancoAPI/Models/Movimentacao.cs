@@ -21,7 +21,7 @@ namespace BancoAPI.Models
         public int ContaID { get; set; }
 
         // Propriedade de navegação
-        public virtual Conta Conta { get; set; }
+        public virtual Conta Conta { get; set; } // Navegação para a entidade Conta
 
         // Construtor com parâmetros
         public Movimentacao(int id, TipoMovimentacao tipo, decimal valor, DateTime dataMovimentacao, int contaID)

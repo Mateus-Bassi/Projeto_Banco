@@ -25,7 +25,7 @@ namespace BancoAPI.Models
         public int ClienteID { get; set; }
 
         // Propriedade de navegação para Cliente
-        public virtual Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; } // Navegação para a entidade Cliente
 
         // Construtor com parâmetros
         public Seguro(int seguroID, TipoSeguro tipo, decimal valorCoberto, decimal premio, DateTime dataInicio, DateTime dataFim, int clienteID)

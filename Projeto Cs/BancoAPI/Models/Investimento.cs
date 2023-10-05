@@ -1,6 +1,7 @@
 //Vinicius 
 using System;
 using System.Collections.Generic;
+using BancoAPI.Models;
 
 namespace BancoAPI.Models
 {
@@ -8,8 +9,8 @@ namespace BancoAPI.Models
     public enum TipoInvestimento
     {
         CDB,
-        TesouroDireto,
-        FundoImobiliario
+        Tesouro_Direto,
+        Fundo_Imobiliario
     }
     public class Investimento
     {
@@ -17,11 +18,10 @@ namespace BancoAPI.Models
         public int InvestimentoID {get; set;}
 
         public TipoInvestimento Tipo {get; set;}
-        public double ValorInicial {get; set;}
+        public decimal ValorInicial {get; set;}
         public DateTime DataInvestimento {get; set;}
-        public double RentabilidadeMensal {get; set;}
+        public decimal Rentabilidade_Mensal {get; set;}
         public DateTime DataResgate {get; set;}
-        public double Taxa {get; set;}
 
         //Chave estrangeira para associar uma conta ao investimento 
         public int ContaID {get; set;}
@@ -29,15 +29,17 @@ namespace BancoAPI.Models
         public virtual Conta Conta {get; set;}
 
         //Construtor da Classe
-        public Investimento(int investimentoID, TipoInvestimento tipo, double valorinicial, DateTime datainvestimento, DateTime dataregaste, int contaID, double taxa = 0, double rentabilidademensal = 0)
+        public Investimento(int investimentoID, TipoInvestimento tipo, decimal valorinicial, DateTime datainvestimento, decimal rentabilidademensal, DateTime dataregaste, int contaID)
         //Declaração do construtor com os parametros
         {
             InvestimentoID = investimentoID;
             Tipo = tipo;
             ValorInicial = valorinicial;
             DataInvestimento = datainvestimento;
+            Rentabilidade_Mensal = rentabilidademensal;
             DataResgate = dataregaste;
             ContaID = contaID;
         }
     }
 }
+
