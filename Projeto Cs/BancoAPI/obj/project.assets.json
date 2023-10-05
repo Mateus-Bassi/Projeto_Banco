@@ -6030,16 +6030,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\dados\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\willi\\.nuget\\packages\\": {}
->>>>>>> 536b834595b53d277f60480105ed1a8ee217c172
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
       "projectName": "BancoAPI",
       "projectPath": "C:\\Users\\dados\\OneDrive\\Desktop\\c#\\Projeto\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
@@ -6048,17 +6043,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dados\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
-      "projectName": "BancoAPI",
-      "projectPath": "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\BancoAPI.csproj",
-      "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willi\\OneDrive\\Documentos\\FaculdadePasta\\4 Semestre\\Software visual\\testeee\\Projeto_Banco\\Projeto Cs\\BancoAPI\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 536b834595b53d277f60480105ed1a8ee217c172
       ],
       "originalTargetFrameworks": [
         "net7.0"

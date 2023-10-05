@@ -9,17 +9,9 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BancoAPI
 build_property.RootNamespace = BancoAPI
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\dados\OneDrive\Desktop\c#\Projeto\Projeto_Banco\Projeto Cs\BancoAPI\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\dados\OneDrive\Desktop\c#\Projeto\Projeto_Banco\Projeto Cs\BancoAPI
-=======
-build_property.ProjectDir = c:\Users\juanv\Desktop\Trab\Projeto_Banco\Projeto Cs\BancoAPI\
-build_property.RazorLangVersion = 7.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\juanv\Desktop\Trab\Projeto_Banco\Projeto Cs\BancoAPI
->>>>>>> 536b834595b53d277f60480105ed1a8ee217c172
 build_property._RazorSourceGeneratorDebug = 
