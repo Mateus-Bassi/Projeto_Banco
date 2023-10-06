@@ -57,32 +57,24 @@ public class AgenciaController : ControllerBase
 
     
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAgencia(int id, Agencia agencia)
+    public async Task<IActionResult> PutAsync(int id, Agencia agencia)
     {
-        if (id != agencia.AgenciaID)
-        {
-            return BadRequest();
-        }
+        // Atribuindo para o agencia especifico os atributos do objeto agencia
+        if(_context is null) return NotFound();
+        if(_context.Agencia is null) return NotFound();
+    
+        var agenciaExistente = await _context.Agencia.FindAsync(id);
+        if(agenciaExistente is null) return NotFound();
 
-        _context.Entry(agencia).State = EntityState.Modified;
+    
+        agenciaExistente.NumeroAgencia = agencia.NumeroAgencia;
+        agenciaExistente.Nome = agencia.Nome;
+        agenciaExistente.EnderecoID = agencia.EnderecoID;
 
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!AgenciaExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        _context.Agencia.Update(agenciaExistente);
+        await _context.SaveChangesAsync();
 
-        return NoContent();
+        return Ok();
     }
 
     
@@ -99,11 +91,6 @@ public class AgenciaController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Ok();
-    }
-
-    private bool AgenciaExists(int id)
-    {
-        return _context.Agencia.Any(e => e.AgenciaID == id);
     }
 }
 

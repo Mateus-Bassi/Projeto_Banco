@@ -1,10 +1,6 @@
 // Juan 
 using System;
 using System.Collections.Generic;
-
-
-
-
 namespace BancoAPI.Models
 {
     public class Agencia
@@ -17,6 +13,7 @@ namespace BancoAPI.Models
         
         // Relacionamento com Endereco
         public int EnderecoID { get; set; }  // Chave estrangeira
+        
         public virtual Endereco Endereco { get; set; }  // Propriedade de navegação
 
         public ICollection<Conta> Contas { get; set; } 
