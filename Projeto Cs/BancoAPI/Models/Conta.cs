@@ -1,4 +1,4 @@
-// William
+// William Dalla Stella dos Santos
 using System;
 using System.Collections.Generic;
 

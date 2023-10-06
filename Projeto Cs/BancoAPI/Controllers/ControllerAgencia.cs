@@ -14,21 +14,30 @@ public class AgenciaController : ControllerBase
     {
         _context = context;
     }
-
     
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Agencia>>> GetAgencia()
+    public async Task<ActionResult<IEnumerable<Agencia>>> Listar()
     {
-        return await _context.Agencia.Include(a => a.Endereco).ToListAsync();
+        if (_context is null || _context.Agencia is null)
+        {
+            return BadRequest("Contexto ou Agencia não encontrada");
+        }
+
+        var agencias = await _context.Agencia.ToListAsync();
+        return Ok(agencias);
     }
 
-    
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Agencia>> GetAgencia(int id)
-    {
-        var agencia = await _context.Agencia.Include(a => a.Endereco).FirstOrDefaultAsync(a => a.AgenciaID == id);
 
-        if (agencia == null)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Agencia>> Get(int id)
+    {
+        if (_context is null || _context.Agencia is null)
+        {
+            return BadRequest("Contexto ou Agencia não encontrada");
+        }
+
+        var agencia = await _context.Agencia.FindAsync(id);
+        if (agencia is null)
         {
             return NotFound();
         }
@@ -43,7 +52,7 @@ public class AgenciaController : ControllerBase
         _context.Agencia.Add(agencia);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetAgencia", new { id = agencia.AgenciaID }, agencia);
+        return Created("",agencia);
     }
 
     
