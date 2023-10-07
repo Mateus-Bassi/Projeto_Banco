@@ -11,10 +11,11 @@ Organização:
         Mateus - Cliente, Empréstimo e Transferência 
         Vinicius - Cartão de crédito e investimento 
         Willian - Conta, Seguro, Movimentação e model Data
+        ChatGTP - Ajuda na ideia para models e ajuda na configuração do dbContext
 
 links:
         Juan - 
         Mateus -
         Vinicius -
-        Willian - 
+        Willian - https://www.youtube.com/watch?v=UnGJNoY-Vw8&ab_channel=WilliamSantos
         
