@@ -18,7 +18,7 @@ Organização
 
 links
 
-        Juan - 
+        Juan - https://youtu.be/q-9Np_iqROs?si=nv6vrMU1a5G90jfg
         Mateus - https://www.youtube.com/watch?v=4Hs7X-YRYEo
         Vinicius - Envio pelo BlackBoard
         Willian - https://www.youtube.com/watch?v=UnGJNoY-Vw8&ab_channel=WilliamSantos
